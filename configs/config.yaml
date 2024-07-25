@@ -1,0 +1,26 @@
+
+mlflow:
+    uri: http://localhost:5000
+    experiment_name: Sentiment Classification
+    run_name: 'run_1'
+
+model:
+    dim_model: 512
+    nhead: 2
+    num_encoder_layers: 2
+    dim_feedforward: 248
+    encoder_dropout: 0.1
+    input_dropout: 0.1
+    transformer_activation: 'relu'
+
+training:
+    seed: 123
+    num_workers: 4
+    batch_size: 16
+    n_gpu: 1
+    epochs: 4
+    learning_rate: 0.001 #0.001 #half at 10 and again at 15
+    auto_lr: 0 # boolean either 1 or 0 
+    lr_schedule:
+        scheduler: null #string or null #'lr_cyclic' or 'lr_decay'
+ 
