@@ -1,0 +1,21 @@
+version: '3.4'
+
+services:
+  sample_ml_project:
+    build: 
+      context: ../
+      dockerfile: ./build/Dockerfile
+    stdin_open: true
+    tty: true
+    env_file:
+      ./.env
+    volumes:
+      - ../src:/ml_project/src
+      - ../data:/ml_project/data
+      - ../experiments:/ml_project/experiments
+      - ../configs:/ml_project/configs
+      - ../build:/ml_project/build
+    ports:
+      - 5000:5000
+
+  
